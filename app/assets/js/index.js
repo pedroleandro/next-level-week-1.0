@@ -6,12 +6,12 @@ let close = window.document.querySelector("#modal .header a")
 
 search.addEventListener(
     "click",
-    function(){
+    function () {
         modal.classList.remove("hide")
     })
 
 close.addEventListener(
     "click",
-    function(){
+    function () {
         modal.classList.add("hide")
     })

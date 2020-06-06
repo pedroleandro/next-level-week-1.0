@@ -94,6 +94,8 @@ function handleSelectedItem(event) {
 
     //console.log(selectedItens)
 
+    /* console.log('selectedItens', selectedItens) */
+
     collectedItens.value = selectedItens
     console.log(collectedItens.value)
 

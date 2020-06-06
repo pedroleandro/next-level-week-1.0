@@ -17,54 +17,35 @@
             {% include "template-model/model-view-header.html" %}
 
             <main>
-                <h4>
-                    <strong>Pontos
-                    </strong>encontrados
-                </h4>
 
-                <div class="cards">
-                    <div class="card">
-                        <img src="" alt="Colectoria">
-                        <h1>Nome</h1>
-                        <h3>Categoria</h3>
-                        <p>Endereço</p>
-                    </div>
+                {% if total > 0 %}
+                    <h4>
+                        <strong>{{ total }} Pontos
+                        </strong>encontrados
+                    </h4>
 
-                    <div class="card">
-                        <img src="" alt="Colectoria">
-                        <h1>Nome</h1>
-                        <h3>Categoria</h3>
-                        <p>Endereço</p>
-                    </div>
+                    <div class="cards">
 
-                    <div class="card">
-                        <img src="" alt="Colectoria">
-                        <h1>Nome</h1>
-                        <h3>Categoria</h3>
-                        <p>Endereço</p>
+                        {% for point in points %}
+                            <div class="card">
+                                <img src="{{ point.point_image }}" alt="{{ point.point_name }}">
+                                <h1>{{ point.point_name }}</h1>
+                                <h3>{{ point.point_items }}</h3>
+                                <p>
+                                {{ point.point_city }}, {{ point.point_state }}
+                                <br/>
+                                {{ point.point_address }}
+                                <br/>
+                                {{ point.point_address2 }}
+                                </p>
+                            </div>
+                        {% endfor %}
                     </div>
+                {% else %}
 
-                    <div class="card">
-                        <img src="" alt="Colectoria">
-                        <h1>Nome</h1>
-                        <h3>Categoria</h3>
-                        <p>Endereço</p>
-                    </div>
+                    <h4>Não há registros para esta pesquisa</h4>
 
-                    <div class="card">
-                        <img src="" alt="Colectoria">
-                        <h1>Nome</h1>
-                        <h3>Categoria</h3>
-                        <p>Endereço</p>
-                    </div>
-
-                    <div class="card">
-                        <img src="" alt="Colectoria">
-                        <h1>Nome</h1>
-                        <h3>Categoria</h3>
-                        <p>Endereço</p>
-                    </div>
-                </div>
+                {% endif %}
             </main>
         </div>
     </body>

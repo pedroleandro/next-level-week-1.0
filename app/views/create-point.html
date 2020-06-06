@@ -7,6 +7,7 @@
 
         <link rel="stylesheet" href="../../assets/css/main.css">
         <link rel="stylesheet" href="../../assets/css/create-point.css">
+        <link rel="stylesheet" href="../../assets/css/modal.css">
         <link rel="stylesheet" href="../../assets/css/responsive.css">
 
     </head>
@@ -16,7 +17,7 @@
 
             {% include "template-model/model-view-header.html" %}
 
-            <form id="form-create-point" action="">
+            <form id="form-create-point" action="/create-point" method="POST">
                 <h1>Cadastro do Ponto de Coleta</h1>
                 <fieldset>
                     <legend>
@@ -75,32 +76,32 @@
                     <div class="itens-grid">
                         <!-- Implementar um código em js ou php pra otimizar isso -->
                         <!-- Pode ser capturando essas informações de arquivos .json -->
-                        <li data-id="1">
+                        <li data-id="Lâmpadas">
                             <img src="../../assets/images/icones/lampadas.svg" alt="Lâmpadas">
                             <span>Lâmpadas</span>
                         </li>
 
-                        <li data-id="2">
+                        <li data-id="Pilhas e Baterias">
                             <img src="../../assets/images/icones/baterias.svg" alt="Pilhas e Baterias">
                             <span>Pilhas e Baterias</span>
                         </li>
 
-                        <li data-id="3">
+                        <li data-id="Pápeis e Papelão">
                             <img src="../../assets/images/icones/papeis-papelao.svg" alt="Pápeis e Papelão">
                             <span>Pápeis e Papelão</span>
                         </li>
 
-                        <li data-id="4">
+                        <li data-id="Resíduos Eletrônicos">
                             <img src="../../assets/images/icones/eletronicos.svg" alt="Resíduos Eletrônicos">
                             <span>Resíduos Eletrônicos</span>
                         </li>
 
-                        <li data-id="5">
+                        <li data-id="Resíduos Orgânicos">
                             <img src="../../assets/images/icones/organicos.svg" alt="Resíduos Orgânicos">
                             <span>Resíduos Orgânicos</span>
                         </li>
 
-                        <li data-id="6">
+                        <li data-id="Óleo de Cozinha">
                             <img src="../../assets/images/icones/oleo.svg" alt="Óleo de Cozinha">
                             <span>Óleo de Cozinha</span>
                         </li>
@@ -111,8 +112,11 @@
 
                 <button>Cadastrar ponto de coleta</button>
             </form>
-
         </div>
+
+        {% if saved %}
+            {% include "template-model/model-view-modal-created.html" %}
+        {% endif %}
 
         <script src="../../assets/js/create-point.js"></script>
     </body>
